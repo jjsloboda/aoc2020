@@ -1,12 +1,18 @@
 pub mod parse {
 
+use std::error::Error;
+use std::fmt::Debug;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
+//use std::ops::Try;
+use std::str::FromStr;
 
-pub fn read_i64_to_vec(filename: &str) -> Vec<i64> {
+pub fn read_to_vec<I>(filename: &str) -> Vec<I>
+        where I: FromStr,
+              <I as FromStr>::Err: Debug {
     let file = File::open(filename).unwrap();
     let reader = BufReader::new(file);
-    reader.lines().map(|l| l.unwrap().parse::<i64>().unwrap()).collect()
+    reader.lines().map(|l| l.unwrap().parse::<I>().unwrap()).collect()
 }
 
 }

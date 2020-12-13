@@ -44,7 +44,7 @@ pub fn three_sum_to_target(nums: &Vec<i64>, target: i64) -> Option<i64> {
 }
 
 fn main() {
-    let nums = parse::read_i64_to_vec("input/01.txt");
+    let nums = parse::read_to_vec::<i64>("input/01.txt");
     if let Some(product) = expenses::two_sum_to_target(&nums, 2020) {
         println!("part 1, product: {}", product);
     } else {

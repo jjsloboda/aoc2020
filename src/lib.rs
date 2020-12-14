@@ -7,12 +7,11 @@ use std::io::{BufRead, BufReader};
 //use std::ops::Try;
 use std::str::FromStr;
 
-pub fn read_to_vec<I>(filename: &str) -> Vec<I>
-        where I: FromStr,
-              <I as FromStr>::Err: Debug {
+pub fn read_to_vec<T>(filename: &str) -> Vec<T>
+        where T: FromStr, T::Err: Debug {
     let file = File::open(filename).unwrap();
     let reader = BufReader::new(file);
-    reader.lines().map(|l| l.unwrap().parse::<I>().unwrap()).collect()
+    reader.lines().map(|l| l.unwrap().parse::<T>().unwrap()).collect()
 }
 
 }

@@ -1,6 +1,5 @@
 pub mod parse {
 
-use std::error::Error;
 use std::fmt::Debug;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -31,6 +30,14 @@ pub fn binary_search(v: &Vec<i64>, q: i64, l: usize, h: usize) -> bool {
 
 }
 
+pub mod ops {
+
+pub fn xor(a: bool, b: bool) -> bool {
+    a != b
+}
+
+}
+
 #[cfg(test)]
 mod tests {
 
@@ -53,6 +60,16 @@ mod tests {
         assert!(binary_search(&vec![41, 42, 44], 42, 0, 3));
         assert!(binary_search(&vec![40, 41, 42, 44], 42, 0, 4));
         assert!(binary_search(&vec![41, 42, 43, 44], 42, 0, 4));
+    }
+
+    #[test]
+    fn xor_test() {
+        use super::ops::xor;
+
+        assert_eq!(xor(false, false), false);
+        assert_eq!(xor(false, true), true);
+        assert_eq!(xor(true, false), true);
+        assert_eq!(xor(true, true), false);
     }
 
 }

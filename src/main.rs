@@ -5,6 +5,7 @@ mod lib;
 mod expenses;    // day 1
 mod passwords;   // day 2
 mod slopetrees;  // day 3
+mod passports;   // day 4
 
 use std::env;
 
@@ -13,6 +14,7 @@ fn call_solution(day: u32, part: u32) {
         1 => expenses::run(part),
         2 => passwords::run(part),
         3 => slopetrees::run(part),
+        4 => passports::run(part),
         _ => panic!("invalid or not implemented"),
     }
 }

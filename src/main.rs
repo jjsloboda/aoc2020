@@ -1,11 +1,16 @@
+#[macro_use] extern crate lazy_static;
+
 mod lib;
-mod expenses;
+
+mod expenses;  // day 1
+mod passwords; // day 2
 
 use std::env;
 
 fn call_solution(day: u32, part: u32) {
     match day {
         1 => expenses::run(part),
+        2 => passwords::run(part),
         _ => panic!("invalid or not implemented"),
     }
 }

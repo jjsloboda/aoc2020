@@ -1,3 +1,5 @@
+#![feature(array_value_iter)]
+
 #[macro_use] extern crate lazy_static;
 
 mod lib;

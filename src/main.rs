@@ -10,6 +10,7 @@ mod slopetrees;  // day 3
 mod passports;   // day 4
 mod boarding;    // day 5
 mod declaration; // day 6
+mod bagrules;    // day 7
 
 use std::env;
 
@@ -21,6 +22,7 @@ fn call_solution(day: u32, part: u32) {
         4 => passports::run(part),
         5 => boarding::run(part),
         6 => declaration::run(part),
+        7 => bagrules::run(part),
         _ => panic!("invalid or not implemented"),
     }
 }

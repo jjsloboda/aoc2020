@@ -1,6 +1,4 @@
 
-use std::collections::HashMap;
-
 use counter::Counter;
 
 use crate::lib;

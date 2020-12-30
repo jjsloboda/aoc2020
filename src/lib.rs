@@ -17,6 +17,9 @@ pub fn read_to_vec<T>(filename: &str) -> Vec<T>
 
 pub mod algo {
 
+use std::collections::HashMap;
+use std::hash::Hash;
+
 pub fn binary_search(v: &Vec<i64>, q: i64, l: usize, h: usize) -> bool {
     if v.is_empty() {
         false
@@ -26,6 +29,19 @@ pub fn binary_search(v: &Vec<i64>, q: i64, l: usize, h: usize) -> bool {
         let m = l + (h - l) / 2;
         binary_search(v, q, l, m) || binary_search(v, q, m, h)
     }
+}
+
+use std::fmt::Debug;
+
+pub fn invert_hashmap<T: Eq + Clone + Hash + Debug>(hm: HashMap<T, Vec<T>>) -> HashMap<T, Vec<T>> {
+    let mut nhm: HashMap<T, Vec<T>> = HashMap::new();
+    for (k, vv) in hm.iter() {
+        for v in vv.iter() {
+            let e = nhm.entry((*v).clone()).or_insert(vec![]);
+            (*e).push(k.clone());
+        }
+    }
+    nhm
 }
 
 }

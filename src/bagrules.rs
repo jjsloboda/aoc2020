@@ -12,9 +12,6 @@ struct Rule {
     colors_contained: Vec<(Atom, u32)>,
 }
 
-impl Rule {
-}
-
 impl FromStr for Rule {
     type Err = RegexError;
 

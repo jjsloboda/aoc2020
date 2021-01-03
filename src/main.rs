@@ -11,6 +11,7 @@ mod passports;   // day 4
 mod boarding;    // day 5
 mod declaration; // day 6
 mod bagrules;    // day 7
+mod handheld;    // day 8
 
 use std::env;
 
@@ -23,6 +24,7 @@ fn call_solution(day: u32, part: u32) {
         5 => boarding::run(part),
         6 => declaration::run(part),
         7 => bagrules::run(part),
+        8 => handheld::run(part),
         _ => panic!("invalid or not implemented"),
     }
 }

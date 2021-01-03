@@ -13,6 +13,7 @@ mod declaration; // day 6
 mod bagrules;    // day 7
 mod handheld;    // day 8
 mod xmascipher;  // day 9
+mod joltdiff;    // day 10
 
 use std::env;
 
@@ -27,6 +28,7 @@ fn call_solution(day: u32, part: u32) {
         7 => bagrules::run(part),
         8 => handheld::run(part),
         9 => xmascipher::run(part),
+        10 => joltdiff::run(part),
         _ => panic!("invalid or not implemented"),
     }
 }
